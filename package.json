@@ -1,0 +1,25 @@
+{
+  "name": "spec-cereal",
+  "version": "1.0.0",
+  "description": "SPEC - WEEK 9 Cereal dataset to API using Express.js, JavaScript and SQLite",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "create-database": "node ./database/csvParser.js",
+    "setup": "concurrently 'npm rum create-database' 'echo Data base created. Now run npm run start.'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Jonatan",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "csv": "^6.3.8",
+    "csv-parser": "^3.0.0",
+    "express": "^4.19.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
