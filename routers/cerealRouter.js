@@ -1,6 +1,8 @@
 import { Router } from "express";
 import db from "../database/connection.js";
 import { authenticateUser } from "../middleware/authenticate.js";
+import fs from "fs";
+import path from "path";
 const router = Router();
 
 // Get all cereal
