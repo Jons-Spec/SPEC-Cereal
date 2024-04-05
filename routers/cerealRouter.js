@@ -14,6 +14,24 @@ router.get("/api/cereal", async (req, res) => {
   }
 });
 
+// Get on ID
+router.get("/api/cereal/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const cereal = await db.get("SELECT * FROM cereal WHERE id = ?", [id]);
+
+    if (!cereal) {
+      return res.status(404).json({ error: "Cereal not found" });
+    }
+
+    res.json({ data: cereal });
+  } catch (error) {
+    console.error("Error fetching cereal by ID:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // Get cereal on ???
 router.get("/api/cereal/results", async (req, res) => {
   try {
