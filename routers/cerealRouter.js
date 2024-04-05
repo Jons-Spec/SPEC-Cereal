@@ -1,5 +1,6 @@
 import { Router } from "express";
 import db from "../database/connection.js";
+import { authenticateUser } from "../middleware/authenticate.js";
 const router = Router();
 
 // Get all cereal
@@ -82,6 +83,7 @@ router.get("/api/cereal/results", async (req, res) => {
   }
 });
 
+router.use(authenticateUser)
 // Add new cereal
 router.post('/api/cereal', async (req, res) => {
   try {
